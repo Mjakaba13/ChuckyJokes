@@ -43,9 +43,9 @@ function searchJoke() {
     .then((data) => {
       console.log(data.result);
       const lukuku = data.result;
-      const bone = lukuku.slice(0, 5);
+      const bone = lukuku.slice(0, 10);
       bone.forEach((element) => {
-        jokeArea.innerHTML += `<hr><p>${element.value}</p>`;
+        jokeArea.innerHTML += `<p>${element.value}</p><hr>`;
       });
     });
 }
@@ -85,6 +85,7 @@ renderjoke();
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  jokeArea.innerHTML = "";
   searchJoke();
   jokeInput.value = "";
 });
